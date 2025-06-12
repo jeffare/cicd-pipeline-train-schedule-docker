@@ -6,7 +6,9 @@ pipeline {
                 echo 'Running build automation'
                 bat ''' gradlew.bat --version
                 gradlew.bat build --no-daemon '''
+                bat 'dir dist'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+                
             }
         }
         stage('Build Docker Image') {
